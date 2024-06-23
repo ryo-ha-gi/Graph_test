@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import Matter from 'matter-js';
 
 export default function Home() {
+  // console.log("start")
   const [boxes, setBoxes] = useState([
     { id: 1, x: 200, y: 200 },
     { id: 2, x: 400, y: 200 },
     { id: 3, x: 600, y: 200 },
   ]);
+  const [mouse_coordinates, setMouse_coordninates] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const engine = Matter.Engine.create();
@@ -76,6 +78,7 @@ export default function Home() {
       {boxes.map(box => (
         <div
           key={box.id}
+          onMouseOver={e => setMouse_coordninates({x:e.clientX,y:e.clientY})}
           style={{
             position: 'absolute',
             left: box.x - 40, // 中心を基準に位置を調整
@@ -87,6 +90,7 @@ export default function Home() {
         />
       ))}
       <div id="matter-scene" />
+      <p>x:{mouse_coordinates.x} y:{mouse_coordinates.y}</p>
     </div>
   );
 }
