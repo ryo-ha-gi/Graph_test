@@ -78,7 +78,7 @@ export default function Home() {
       {boxes.map(box => (
         <div
           key={box.id}
-          onMouseMove={e => setMouse_coordninates({x:e.clientX,y:e.clientY})}
+          onPointerMove={e => setMouse_coordninates({x:e.clientX,y:e.clientY})}
           style={{
             position: 'absolute',
             left: box.x - 40, // 中心を基準に位置を調整
