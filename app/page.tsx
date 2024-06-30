@@ -57,8 +57,8 @@ export default function Home() {
           const center = { x: 400, y: 300 };
           const delta = boxBody? { x: boxBody.body.position.x - center.x, y: boxBody.body.position.y - center.y } : { x: 0, y: 0 };
           const force_distance = boxBody? Math.max(Math.sqrt( delta.x**2 + delta.y**2 ),10): Infinity;
-          const magnitude = -1;
-          const force = boxBody? { x: magnitude * delta.x / (force_distance**3), y: magnitude * delta.y / (force_distance**3),} :{ x: 0, y: 0 };
+          const magnitude = -0.0001;
+          const force = boxBody? { x: magnitude * delta.x / (force_distance), y: magnitude * delta.y / (force_distance),} :{ x: 0, y: 0 };
           if (boxBody) Matter.Body.applyForce(boxBody.body, center, force);
           return boxBody
             ? { ...box, x: boxBody.body.position.x, y: boxBody.body.position.y }
