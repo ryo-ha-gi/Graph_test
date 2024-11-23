@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react';
 import Matter from 'matter-js';
+import SigmaGraph from './sigmagraph';
 
 export default function Home() {
   // console.log("start")
@@ -101,6 +102,7 @@ export default function Home() {
       ))}
       <div id="matter-scene" onPointerMove={e => setMouse_coordninates({x:e.clientX,y:e.clientY})}/>
       <p>x:{mouse_coordinates.x} y:{mouse_coordinates.y}</p>
+      <SigmaGraph/>
     </div>
   );
 }
